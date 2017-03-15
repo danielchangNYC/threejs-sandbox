@@ -23,7 +23,7 @@ const animate = () => {
 
 const init = container => {
   scene = new Scene();
-  console.log(container);
+
   camera = new PerspectiveCamera(
     75,
     container.innerWidth / container.innerHeight,
