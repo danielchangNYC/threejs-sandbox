@@ -26,7 +26,7 @@ const init = container => {
 
   camera = new PerspectiveCamera(
     75,
-    container.innerWidth / container.innerHeight,
+    container.clientWidth / container.clientHeight,
     0.1,
     1000,
   );
@@ -38,7 +38,7 @@ const init = container => {
   scene.add(cube);
 
   renderer = new WebGLRenderer();
-  renderer.setSize(container.innerWidth, container.innerHeight);
+  renderer.setSize(container.clientWidth, container.clientHeight);
 
   const currentChild = container.childNodes[0];
   container.replaceChild(renderer.domElement, currentChild);
