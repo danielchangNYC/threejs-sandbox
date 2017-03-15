@@ -1,5 +1,5 @@
 {
-  "name": "three-js sandbox",
+  "name": "three-js-sandbox",
   "version": "0.0.1",
   "description": "A livereloading, static site built using gulp to render threejs awesomeness",
   "dependencies": {
@@ -20,5 +20,8 @@
     "gulp-util": "^3.0.8",
     "vinyl-buffer": "^1.0.0",
     "vinyl-source-stream": "^1.1.0"
+  },
+  "scripts": {
+    "start": "gulp"
   }
 }
