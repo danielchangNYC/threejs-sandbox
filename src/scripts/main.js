@@ -7,6 +7,7 @@ import {
   Mesh,
 } from 'three';
 import Detector from './detector';
+import { Router } from 'director';
 
 let scene, camera, renderer;
 let geometry, material, mesh;
@@ -40,8 +41,15 @@ const animate = () => {
 };
 
 if (Detector.webgl) {
-  init();
-  animate();
+  const routes = {
+    '/tutorial': () => {
+      console.log('tutorial');
+    },
+  };
+  Router(routes).init();
+
+  // init();
+  // animate();
 } else {
   const warning = Detector.getWebGLErrorMessage();
   document.getElementById('container').appendChild(warning);

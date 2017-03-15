@@ -3,6 +3,7 @@
   "version": "0.0.1",
   "description": "A livereloading, static site built using gulp to render threejs awesomeness",
   "dependencies": {
+    "director": "^1.2.8",
     "three": "^0.84.0"
   },
   "devDependencies": {
