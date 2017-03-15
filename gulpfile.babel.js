@@ -24,7 +24,7 @@ gulp.task('sass', () =>
     .pipe(gulp.dest('public/css/'))
     .pipe(browserSync.stream()));
 
-gulp.task('build', () =>
+gulp.task('js', () =>
   browserify({
     entries: 'src/scripts/main.js',
     debug: true,
@@ -36,7 +36,9 @@ gulp.task('build', () =>
     .on('error', gutil.log)
     .pipe(gulp.dest('public/js/')));
 
-gulp.task('js-watch', ['build'], done => {
+gulp.task('build', ['sass', 'js']);
+
+gulp.task('js-watch', ['js'], done => {
   browserSync.reload();
   done();
 });
