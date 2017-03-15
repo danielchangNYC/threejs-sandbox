@@ -52,5 +52,5 @@ if (Detector.webgl) {
   // animate();
 } else {
   const warning = Detector.getWebGLErrorMessage();
-  document.getElementById('container').appendChild(warning);
+  document.getElementById('three').appendChild(warning);
 }

@@ -1,16 +1,29 @@
+#app {
+  display: flex;
+  height: 100vh;
+}
+
 canvas {
   width: 100%;
   height: 100%;
 }
 
 nav {
-  display: inline-block;
-  max-width: 100px;
-  height: 100%;
+  display: flex;
+  max-width: 400px;
+  min-width: 100px;
+  width: 20%;
+  padding: 40px;
 }
 
-#container {
-  display: inline-block;
+#three {
+  display: flex;
   width: 100%;
-  height: 100%;
+  padding: 40px;
+}
+
+ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
 }
