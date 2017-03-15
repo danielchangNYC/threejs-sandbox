@@ -8,34 +8,41 @@ import {
 } from 'three';
 import Detector from './detector';
 
-if (Detector.webgl) {
-  const scene = new Scene();
-  const camera = new PerspectiveCamera(
+let scene, camera, renderer;
+let geometry, material, mesh;
+
+const init = () => {
+  scene = new Scene();
+
+  camera = new PerspectiveCamera(
     75,
     window.innerWidth / window.innerHeight,
     0.1,
     1000,
   );
-
-  const renderer = new WebGLRenderer();
-  renderer.setSize(window.innerWidth, window.innerHeight);
-  document.body.appendChild(renderer.domElement);
-
-  const geometry = new BoxGeometry(1, 1, 1);
-  const material = new MeshBasicMaterial({ color: 0x00ff00 });
-  const cube = new Mesh(geometry, material);
-  scene.add(cube);
-
   camera.position.z = 5;
 
-  const render = () => {
-    requestAnimationFrame(render);
-    cube.rotation.x += 0.05;
-    cube.rotation.y += 0.01;
-    renderer.render(scene, camera);
-  };
-  render();
+  geometry = new BoxGeometry(1, 1, 1);
+  material = new MeshBasicMaterial({ color: 0x00ff00 });
+  mesh = new Mesh(geometry, material);
+  scene.add(mesh);
+
+  renderer = new WebGLRenderer();
+  renderer.setSize(window.innerWidth, window.innerHeight);
+  document.body.appendChild(renderer.domElement);
+};
+
+const animate = () => {
+  requestAnimationFrame(animate);
+  mesh.rotation.x += 0.05;
+  mesh.rotation.y += 0.01;
+  renderer.render(scene, camera);
+};
+
+if (Detector.webgl) {
+  init();
+  animate();
 } else {
-  var warning = Detector.getWebGLErrorMessage();
+  const warning = Detector.getWebGLErrorMessage();
   document.getElementById('container').appendChild(warning);
 }
