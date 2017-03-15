@@ -11,13 +11,14 @@ import { Router } from 'director';
 
 let scene, camera, renderer;
 let geometry, material, mesh;
+const container = document.getElementById('three');
 
 const init = () => {
   scene = new Scene();
 
   camera = new PerspectiveCamera(
     75,
-    window.innerWidth / window.innerHeight,
+    container.innerWidth / container.innerHeight,
     0.1,
     1000,
   );
@@ -29,8 +30,9 @@ const init = () => {
   scene.add(mesh);
 
   renderer = new WebGLRenderer();
-  renderer.setSize(window.innerWidth, window.innerHeight);
-  document.body.appendChild(renderer.domElement);
+  renderer.setSize(container.innerWidth, container.innerHeight);
+  const currentChild = container.childNodes[0];
+  container.replaceChild(renderer.domElement, currentChild);
 };
 
 const animate = () => {
@@ -48,8 +50,8 @@ if (Detector.webgl) {
   };
   Router(routes).init();
 
-  // init();
-  // animate();
+  init();
+  animate();
 } else {
   const warning = Detector.getWebGLErrorMessage();
   document.getElementById('three').appendChild(warning);
