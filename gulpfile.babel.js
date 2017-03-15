@@ -9,7 +9,6 @@ import sourcemaps from 'gulp-sourcemaps';
 import concat from 'gulp-concat';
 import { create as browserSyncCreate } from 'browser-sync';
 import browserify from 'browserify';
-import uglify from 'gulp-uglify';
 import gutil from 'gulp-util';
 
 const browserSync = browserSyncCreate();
@@ -35,10 +34,7 @@ gulp.task('build', () => {
     .bundle()
     .pipe(source('bundle.js'))
     .pipe(buffer())
-    .pipe(sourcemaps.init({ loadMaps: true }))
-    .pipe(uglify())
     .on('error', gutil.log)
-    .pipe(sourcemaps.write('.'))
     .pipe(gulp.dest('public/js/'));
 });
 
