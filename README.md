@@ -8,14 +8,16 @@ First, install dependencies
 
 `yarn` or `npm i`
 
-Either:
+Then either:
 1. Use `http-server` to serve the assets
 2. Use `gulp` if you also want live-reload
 
 **Option 1**
 
 `gulp build`
+
 `yarn global add http-server`
+
 `http-server`
 
 **Option 2**
