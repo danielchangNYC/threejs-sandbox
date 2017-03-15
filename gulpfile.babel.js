@@ -15,7 +15,7 @@ const browserSync = browserSyncCreate();
 
 gulp.task('sass', () =>
   gulp
-    .src('src/styles/*.scss')
+    .src(['src/styles/vendor/*.css', 'src/styles/*.?(s)css'])
     .pipe(sourcemaps.init())
     .pipe(sass().on('error', sass.logError))
     .pipe(concat('app.css'))
