@@ -18,3 +18,16 @@ const camera = new PerspectiveCamera(
 const renderer = new WebGLRenderer();
 renderer.setSize(window.innerWidth, window.innerHeight);
 document.body.appendChild(renderer.domElement);
+
+const geometry = new BoxGeometry(1, 1, 1);
+const material = new MeshBasicMaterial({ color: 0x00ff00 });
+const cube = new Mesh(geometry, material);
+scene.add(cube);
+
+camera.position.z = 5;
+
+const render = () => {
+  requestAnimationFrame(render);
+  renderer.render(scene, camera);
+};
+render();
