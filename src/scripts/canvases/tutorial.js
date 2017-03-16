@@ -33,7 +33,7 @@ const init = container => {
   camera.position.z = 5;
 
   geometry = new BoxGeometry(1, 1, 1);
-  material = new MeshBasicMaterial({ color: 0x00ff00 });
+  material = new MeshBasicMaterial({ color: 0x00ff00, wireframe: true });
   cube = new Mesh(geometry, material);
   scene.add(cube);
 
